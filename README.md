@@ -1,6 +1,6 @@
 # Agentic Software Engineering System
 
-A runnable interview-assignment prototype that turns a software requirement into a reviewable engineering outcome through a multi-step, dependency-aware agent workflow. The mandatory demonstration is a scalable URL shortener with APIs, persistence, and analytics.
+A runnable prototype that turns a software requirement into a reviewable engineering outcome through a multi-step, dependency-aware agent workflow. The mandatory demonstration is a scalable URL shortener with APIs, persistence, and analytics.
 
 ## Why this exists
 
@@ -49,9 +49,9 @@ The repository is intentionally organized so an evaluator can map each requested
 | Generated code/API/tests | workflow output: `generated_code.py`, `api_contract.json`, `generated_tests.py`, `test_plan.md` |
 | Structured engineering summary | workflow output: `engineering_summary` |
 
-## Recruiter note coverage
+## Evaluator note coverage
 
-The final deliverable is a runnable URL-shortener application plus documentation covering the candidate approach, key decisions, implementation details, setup, assumptions, risks and trade-offs. It is deliberately scoped as a demoable interview prototype rather than a production-grade distributed system. See `docs/final-deliverable.md`.
+The final deliverable is a runnable URL-shortener application plus documentation covering the candidate approach, key decisions, implementation details, setup, assumptions, risks and trade-offs. It is deliberately scoped as a demoable prototype rather than a production-grade distributed system. See `docs/final-deliverable.md`.
 
 ## Repository layout
 
@@ -196,7 +196,7 @@ The architecture intentionally keeps deterministic validation separate from mode
 - Analytics are intentionally basic: click count plus timestamp/user-agent/referrer event metadata.
 - Authentication, rate limiting, expiration, custom aliases, abuse detection, and advanced analytics are not part of the mandatory requirement.
 - Short-code allocation uses random generation plus a uniqueness constraint and bounded collision retry.
-- The prototype does not execute arbitrary model-generated code. This avoids creating an unsafe code-execution surface in an interview demo.
+- The prototype does not execute arbitrary model-generated code. This avoids creating an unsafe code-execution surface in an demo.
 
 ## Limitations and next steps
 
@@ -205,3 +205,4 @@ For a production evolution, the next steps would include PostgreSQL, Redis/cache
 ## Assignment coverage
 
 The implementation explicitly covers requirement understanding, task decomposition, dependency management, brownfield analysis, meaningful multi-step orchestration, error/retry handling, engineering artifact generation, API/schema/test outputs, validation and guardrails, controlled autonomy, human approval, and the final structured engineering summary.
+`

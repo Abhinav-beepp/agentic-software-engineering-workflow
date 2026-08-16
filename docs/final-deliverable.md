@@ -62,4 +62,4 @@ See:
 
 ## Scope decision
 
-This is intentionally a **runnable, demoable interview prototype**, not a production-grade distributed platform. The repository documents the path from the prototype to PostgreSQL, caching, rate limiting, authentication, asynchronous analytics, observability and stronger isolation if the system were evolved for production.
+This is intentionally a **runnable, demoable prototype**, not a production-grade distributed platform. The repository documents the path from the prototype to PostgreSQL, caching, rate limiting, authentication, asynchronous analytics, observability and stronger isolation if the system were evolved for production.
