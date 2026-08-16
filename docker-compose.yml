@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite:////app/data/url_shortener.db
+      LOG_LEVEL: INFO
+    volumes:
+      - app-data:/app/data
+
+volumes:
+  app-data:

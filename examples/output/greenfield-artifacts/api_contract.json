@@ -1,0 +1,44 @@
+{
+  "openapi": "3.0.3",
+  "service": "URL Shortener",
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/api/v1/urls",
+      "request": {
+        "original_url": "string(uri)"
+      },
+      "response": {
+        "id": "integer",
+        "short_code": "string",
+        "short_url": "string"
+      },
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/urls/{short_code}/analytics",
+      "response": {
+        "short_code": "string",
+        "click_count": "integer"
+      },
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/{short_code}",
+      "response": "307 redirect",
+      "errors": [
+        404
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "response": {
+        "status": "ok"
+      },
+      "status": 200
+    }
+  ]
+}

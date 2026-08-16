@@ -1,0 +1,810 @@
+{
+  "workflow_id": "wf-aee0f2e597ff",
+  "requirement": "Add rate limiting and API-key authentication to the existing URL shortener.",
+  "mode": "brownfield",
+  "task_status": {
+    "brownfield_scan": "COMPLETED",
+    "analysis": "COMPLETED",
+    "architecture": "COMPLETED",
+    "api": "COMPLETED",
+    "database": "COMPLETED",
+    "implementation": "COMPLETED",
+    "tests": "COMPLETED",
+    "risks": "COMPLETED",
+    "validation": "COMPLETED",
+    "approval": "APPROVED",
+    "summary": "COMPLETED"
+  },
+  "history": [
+    {
+      "timestamp": "2026-08-16T17:51:43.154992+00:00",
+      "actor": "planner",
+      "status": "completed",
+      "message": "Task graph created"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.155419+00:00",
+      "actor": "brownfield_scan",
+      "status": "running",
+      "message": "Inspect existing codebase"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.161454+00:00",
+      "actor": "brownfield_scan",
+      "status": "completed",
+      "message": "Inspect existing codebase"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.161494+00:00",
+      "actor": "analysis",
+      "status": "running",
+      "message": "Normalize requirement"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.161535+00:00",
+      "actor": "analysis",
+      "status": "completed",
+      "message": "Normalize requirement"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.161606+00:00",
+      "actor": "architecture",
+      "status": "running",
+      "message": "Design architecture"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.161630+00:00",
+      "actor": "architecture",
+      "status": "completed",
+      "message": "Design architecture"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.161670+00:00",
+      "actor": "api",
+      "status": "running",
+      "message": "Define API contract"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.161682+00:00",
+      "actor": "api",
+      "status": "completed",
+      "message": "Define API contract"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.161691+00:00",
+      "actor": "database",
+      "status": "running",
+      "message": "Design persistence"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.161699+00:00",
+      "actor": "database",
+      "status": "completed",
+      "message": "Design persistence"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.161730+00:00",
+      "actor": "implementation",
+      "status": "running",
+      "message": "Implement service"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.162405+00:00",
+      "actor": "implementation",
+      "status": "completed",
+      "message": "Implement service"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.162478+00:00",
+      "actor": "tests",
+      "status": "running",
+      "message": "Generate and execute tests"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.162493+00:00",
+      "actor": "tests",
+      "status": "completed",
+      "message": "Generate and execute tests"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.162503+00:00",
+      "actor": "risks",
+      "status": "running",
+      "message": "Assess risks and trade-offs"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.162512+00:00",
+      "actor": "risks",
+      "status": "completed",
+      "message": "Assess risks and trade-offs"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.162543+00:00",
+      "actor": "validation",
+      "status": "running",
+      "message": "Validate engineering outcome"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.162652+00:00",
+      "actor": "validation",
+      "status": "completed",
+      "message": "Validate engineering outcome"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.162684+00:00",
+      "actor": "approval",
+      "status": "approved",
+      "message": "Approval recorded"
+    },
+    {
+      "timestamp": "2026-08-16T17:51:43.162735+00:00",
+      "actor": "summary",
+      "status": "completed",
+      "message": "Final engineering summary generated"
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "checks": [
+      "All required workflow tasks exist",
+      "Requirement analysis contains acceptance criteria",
+      "Architecture contains components",
+      "Engineering artifact files were generated",
+      "API contract exists",
+      "Test plan exists",
+      "Code and test generation artifacts are present in the manifest",
+      "Runnable application entrypoint exists"
+    ],
+    "failures": [],
+    "warnings": [
+      "Prototype validation does not execute generated arbitrary code; it relies on the repository test suite and deterministic artifact checks."
+    ]
+  },
+  "approval": "APPROVED",
+  "artifacts": {
+    "brownfield_analysis": {
+      "file_count": 56,
+      "relevant_files": [
+        "docker-compose.yml",
+        "examples/brownfield.json",
+        "examples/greenfield.json",
+        "examples/ambiguous.json",
+        "tests/conftest.py",
+        "src/app/config.py",
+        "src/app/exceptions.py",
+        "src/app/__init__.py",
+        "src/app/main.py",
+        "src/app/cli.py",
+        "src/app/models.py",
+        "src/app/logging.py",
+        "src/app/validation/__init__.py",
+        "src/app/validation/validator.py",
+        "src/app/services/__init__.py",
+        "src/app/services/url_service.py",
+        "src/app/api/__init__.py",
+        "src/app/api/url_routes.py",
+        "src/app/agents/artifacts.py",
+        "src/app/agents/requirement.py",
+        "src/app/agents/guarded.py",
+        "src/app/agents/__init__.py",
+        "src/app/agents/providers.py",
+        "src/app/agents/contracts.py",
+        "src/app/agents/testing.py",
+        "src/app/agents/base.py",
+        "src/app/agents/architecture.py",
+        "src/app/agents/risk.py",
+        "src/app/agents/implementation.py",
+        "src/app/agents/summary.py",
+        "src/app/agents/brownfield.py",
+        "src/app/agents/database.py",
+        "src/app/agents/planner.py",
+        "src/app/storage/__init__.py",
+        "src/app/storage/models.py",
+        "src/app/storage/database.py",
+        "src/app/storage/repository.py",
+        "src/app/orchestration/orchestrator.py",
+        "src/app/orchestration/__init__.py",
+        "tests/integration/test_api.py",
+        "tests/e2e/test_mandatory_demo.py",
+        "tests/unit/test_url_service.py",
+        "tests/orchestration/test_brownfield.py",
+        "tests/orchestration/test_workflow.py",
+        "examples/output/brownfield.json",
+        "examples/output/greenfield.json",
+        "examples/output/ambiguous.json",
+        "examples/output/brownfield-artifacts/generated_code.py",
+        "examples/output/brownfield-artifacts/generated_tests.py",
+        "examples/output/brownfield-artifacts/api_contract.json",
+        "examples/output/ambiguous-artifacts/generated_code.py",
+        "examples/output/ambiguous-artifacts/generated_tests.py",
+        "examples/output/ambiguous-artifacts/api_contract.json",
+        "examples/output/greenfield-artifacts/generated_code.py",
+        "examples/output/greenfield-artifacts/generated_tests.py",
+        "examples/output/greenfield-artifacts/api_contract.json"
+      ],
+      "observed_files": [
+        "docker-compose.yml",
+        "examples/brownfield.json",
+        "examples/greenfield.json",
+        "examples/ambiguous.json",
+        "tests/conftest.py",
+        "src/app/config.py",
+        "src/app/exceptions.py",
+        "src/app/__init__.py",
+        "src/app/main.py",
+        "src/app/cli.py",
+        "src/app/models.py",
+        "src/app/logging.py",
+        "src/app/validation/__init__.py",
+        "src/app/validation/validator.py",
+        "src/app/services/__init__.py",
+        "src/app/services/url_service.py",
+        "src/app/api/__init__.py",
+        "src/app/api/url_routes.py",
+        "src/app/agents/artifacts.py",
+        "src/app/agents/requirement.py",
+        "src/app/agents/guarded.py",
+        "src/app/agents/__init__.py",
+        "src/app/agents/providers.py",
+        "src/app/agents/contracts.py",
+        "src/app/agents/testing.py",
+        "src/app/agents/base.py",
+        "src/app/agents/architecture.py",
+        "src/app/agents/risk.py",
+        "src/app/agents/implementation.py",
+        "src/app/agents/summary.py",
+        "src/app/agents/brownfield.py",
+        "src/app/agents/database.py",
+        "src/app/agents/planner.py",
+        "src/app/storage/__init__.py",
+        "src/app/storage/models.py",
+        "src/app/storage/database.py",
+        "src/app/storage/repository.py",
+        "src/app/orchestration/orchestrator.py",
+        "src/app/orchestration/__init__.py",
+        "tests/integration/test_api.py",
+        "tests/e2e/test_mandatory_demo.py",
+        "tests/unit/test_url_service.py",
+        "tests/orchestration/test_brownfield.py",
+        "tests/orchestration/test_workflow.py",
+        "examples/output/brownfield.json",
+        "examples/output/greenfield.json",
+        "examples/output/ambiguous.json",
+        "examples/output/brownfield-artifacts/generated_code.py",
+        "examples/output/brownfield-artifacts/generated_tests.py",
+        "examples/output/brownfield-artifacts/api_contract.json",
+        "examples/output/ambiguous-artifacts/generated_code.py",
+        "examples/output/ambiguous-artifacts/generated_tests.py",
+        "examples/output/ambiguous-artifacts/api_contract.json",
+        "examples/output/greenfield-artifacts/generated_code.py",
+        "examples/output/greenfield-artifacts/generated_tests.py",
+        "examples/output/greenfield-artifacts/api_contract.json"
+      ],
+      "impacted_areas": [
+        "API routes",
+        "service layer",
+        "persistence models",
+        "tests",
+        "configuration"
+      ],
+      "evidence_based": true
+    },
+    "api_contract": {
+      "POST /api/v1/urls": {
+        "request": {
+          "original_url": "string(uri)"
+        },
+        "response": {
+          "id": "integer",
+          "short_code": "string",
+          "short_url": "string"
+        },
+        "status": 201
+      },
+      "GET /api/v1/urls/{short_code}/analytics": {
+        "response": {
+          "short_code": "string",
+          "click_count": "integer"
+        },
+        "status": 200
+      },
+      "GET /{short_code}": {
+        "response": "307 redirect",
+        "errors": [
+          404
+        ]
+      },
+      "GET /health": {
+        "response": {
+          "status": "ok"
+        },
+        "status": 200
+      }
+    },
+    "database_schema": {
+      "urls": [
+        "id",
+        "original_url",
+        "short_code UNIQUE",
+        "created_at",
+        "updated_at",
+        "click_count",
+        "last_clicked_at"
+      ],
+      "click_events": [
+        "id",
+        "url_id FK",
+        "clicked_at",
+        "user_agent",
+        "referrer"
+      ]
+    },
+    "generated_files": [
+      "implementation_plan.md",
+      "architecture.md",
+      "api_contract.json",
+      "database_schema.md",
+      "test_plan.md",
+      "generated_code.py",
+      "generated_tests.py",
+      "risks-and-tradeoffs.md"
+    ],
+    "artifact_manifest": [
+      "implementation_plan.md",
+      "architecture.md",
+      "api_contract.json",
+      "database_schema.md",
+      "test_plan.md",
+      "generated_code.py",
+      "generated_tests.py",
+      "risks-and-tradeoffs.md"
+    ],
+    "test_plan": {
+      "unit": [
+        "URL validation",
+        "short-code generation",
+        "collision handling",
+        "service behavior"
+      ],
+      "integration": [
+        "create",
+        "redirect",
+        "analytics",
+        "health",
+        "persistence",
+        "invalid/missing inputs"
+      ],
+      "orchestration": [
+        "dependency resolution",
+        "parallel ready tasks",
+        "retry",
+        "recovery",
+        "approval"
+      ],
+      "e2e": [
+        "mandatory requirement through final engineering summary"
+      ]
+    },
+    "implementation": {
+      "modules": [
+        "app.main",
+        "app.api.url_routes",
+        "app.services.url_service",
+        "app.storage.repository",
+        "app.storage.models"
+      ],
+      "guardrails": [
+        "HTTP(S) URL validation",
+        "unique short-code constraint",
+        "bounded collision retry",
+        "structured error responses"
+      ]
+    },
+    "risks": [
+      {
+        "risk": "SQLite write contention",
+        "impact": "medium",
+        "mitigation": "Use PostgreSQL for multi-instance production deployment."
+      },
+      {
+        "risk": "Short-code collision",
+        "impact": "low",
+        "mitigation": "Unique index plus bounded retry."
+      },
+      {
+        "risk": "Analytics growth",
+        "impact": "medium",
+        "mitigation": "Move click events to an append-only/event pipeline when volume warrants it."
+      },
+      {
+        "risk": "Model-generated engineering output may be incorrect",
+        "impact": "high",
+        "mitigation": "Deterministic validation, tests, guardrails, and human approval."
+      }
+    ],
+    "tradeoffs": [
+      "SQLite simplifies setup but is not the final choice for high write concurrency.",
+      "Basic analytics avoids unnecessary event-stream infrastructure in the prototype.",
+      "The deterministic provider favors reproducibility over open-ended model creativity."
+    ],
+    "engineering_summary": {
+      "original_requirement": "Add rate limiting and API-key authentication to the existing URL shortener.",
+      "implementation_plan": "Analyze the existing repository and plan the requested change: Add rate limiting and API-key authentication to the existing URL shortener.",
+      "requirement_analysis": {
+        "original_requirement": "Add rate limiting and API-key authentication to the existing URL shortener.",
+        "intent": "Transform the URL-shortener requirement into a reviewable, testable engineering plan and implementation.",
+        "functional_requirements": [
+          "Inspect the existing repository before proposing implementation changes.",
+          "Identify impacted API, service, configuration, persistence, and test areas.",
+          "Add the requested capability while preserving existing behavior through regression tests."
+        ],
+        "non_functional_requirements": [
+          "Maintainable modular design.",
+          "Reliable persistence and deterministic validation.",
+          "Explicit assumptions and measurable acceptance criteria."
+        ],
+        "constraints": [
+          "Prototype should run locally without mandatory paid services."
+        ],
+        "assumptions": [
+          "SQLite is acceptable for the local demonstration; PostgreSQL is the production evolution path.",
+          "The prototype prioritizes demonstrability over production-scale infrastructure."
+        ],
+        "ambiguities": [],
+        "clarifying_questions": [],
+        "acceptance_criteria": [
+          "Only observed repository structure is used as evidence.",
+          "Impacted components and regression tests are identified.",
+          "The requested change has explicit validation criteria."
+        ],
+        "normalized_problem": "Analyze the existing repository and plan the requested change: Add rate limiting and API-key authentication to the existing URL shortener."
+      },
+      "architecture": {
+        "overview": "A modular FastAPI service backed by SQLAlchemy, with a deterministic agent orchestrator around the engineering lifecycle. The URL service is separated from persistence and API adapters.",
+        "components": [
+          "FastAPI HTTP layer",
+          "URLService domain/application service",
+          "SQLAlchemy repository and models",
+          "Agent abstractions and workflow state",
+          "DAG-based orchestrator with retries and recovery",
+          "Deterministic validator",
+          "Human approval gate",
+          "Artifact/document generator"
+        ],
+        "data_flows": [
+          "Create URL: HTTP -> URLService -> URLRepository -> SQLite/PostgreSQL-compatible persistence.",
+          "Redirect: HTTP -> URLService -> URLRepository -> click event + redirect response.",
+          "Engineering workflow: requirement -> analysis -> task graph -> dependent agents -> validation -> approval -> summary."
+        ],
+        "decisions": [
+          "Use FastAPI for typed APIs and generated OpenAPI documentation.",
+          "Use SQLite for a zero-friction local demo and preserve SQLAlchemy portability for PostgreSQL.",
+          "Use deterministic validation for checks that should not depend on model behavior.",
+          "Use an LLM provider interface so a real model can be added without coupling the workflow core."
+        ],
+        "tradeoffs": [
+          "SQLite simplifies setup but is not the final choice for high write concurrency.",
+          "Basic analytics avoids unnecessary event-stream infrastructure in the prototype.",
+          "The deterministic provider favors reproducibility over open-ended model creativity."
+        ]
+      },
+      "generated_artifacts": [
+        "implementation_plan.md",
+        "architecture.md",
+        "api_contract.json",
+        "database_schema.md",
+        "test_plan.md",
+        "generated_code.py",
+        "generated_tests.py",
+        "risks-and-tradeoffs.md"
+      ],
+      "validation": {
+        "passed": true,
+        "checks": [
+          "All required workflow tasks exist",
+          "Requirement analysis contains acceptance criteria",
+          "Architecture contains components",
+          "Engineering artifact files were generated",
+          "API contract exists",
+          "Test plan exists",
+          "Code and test generation artifacts are present in the manifest",
+          "Runnable application entrypoint exists"
+        ],
+        "failures": [],
+        "warnings": [
+          "Prototype validation does not execute generated arbitrary code; it relies on the repository test suite and deterministic artifact checks."
+        ]
+      },
+      "risks": [
+        {
+          "risk": "SQLite write contention",
+          "impact": "medium",
+          "mitigation": "Use PostgreSQL for multi-instance production deployment."
+        },
+        {
+          "risk": "Short-code collision",
+          "impact": "low",
+          "mitigation": "Unique index plus bounded retry."
+        },
+        {
+          "risk": "Analytics growth",
+          "impact": "medium",
+          "mitigation": "Move click events to an append-only/event pipeline when volume warrants it."
+        },
+        {
+          "risk": "Model-generated engineering output may be incorrect",
+          "impact": "high",
+          "mitigation": "Deterministic validation, tests, guardrails, and human approval."
+        }
+      ],
+      "tradeoffs": [
+        "SQLite simplifies setup but is not the final choice for high write concurrency.",
+        "Basic analytics avoids unnecessary event-stream infrastructure in the prototype.",
+        "The deterministic provider favors reproducibility over open-ended model creativity."
+      ],
+      "assumptions": [
+        "SQLite is acceptable for the local demonstration; PostgreSQL is the production evolution path.",
+        "The prototype prioritizes demonstrability over production-scale infrastructure."
+      ],
+      "limitations": [
+        "Prototype uses SQLite locally.",
+        "Analytics are intentionally basic.",
+        "Authentication, rate limiting, expiration, and custom aliases are outside the mandatory scope."
+      ],
+      "generated_at": "2026-08-16T17:51:43.162725+00:00"
+    }
+  },
+  "engineering_summary": {
+    "original_requirement": "Add rate limiting and API-key authentication to the existing URL shortener.",
+    "implementation_plan": "Analyze the existing repository and plan the requested change: Add rate limiting and API-key authentication to the existing URL shortener.",
+    "requirement_analysis": {
+      "original_requirement": "Add rate limiting and API-key authentication to the existing URL shortener.",
+      "intent": "Transform the URL-shortener requirement into a reviewable, testable engineering plan and implementation.",
+      "functional_requirements": [
+        "Inspect the existing repository before proposing implementation changes.",
+        "Identify impacted API, service, configuration, persistence, and test areas.",
+        "Add the requested capability while preserving existing behavior through regression tests."
+      ],
+      "non_functional_requirements": [
+        "Maintainable modular design.",
+        "Reliable persistence and deterministic validation.",
+        "Explicit assumptions and measurable acceptance criteria."
+      ],
+      "constraints": [
+        "Prototype should run locally without mandatory paid services."
+      ],
+      "assumptions": [
+        "SQLite is acceptable for the local demonstration; PostgreSQL is the production evolution path.",
+        "The prototype prioritizes demonstrability over production-scale infrastructure."
+      ],
+      "ambiguities": [],
+      "clarifying_questions": [],
+      "acceptance_criteria": [
+        "Only observed repository structure is used as evidence.",
+        "Impacted components and regression tests are identified.",
+        "The requested change has explicit validation criteria."
+      ],
+      "normalized_problem": "Analyze the existing repository and plan the requested change: Add rate limiting and API-key authentication to the existing URL shortener."
+    },
+    "architecture": {
+      "overview": "A modular FastAPI service backed by SQLAlchemy, with a deterministic agent orchestrator around the engineering lifecycle. The URL service is separated from persistence and API adapters.",
+      "components": [
+        "FastAPI HTTP layer",
+        "URLService domain/application service",
+        "SQLAlchemy repository and models",
+        "Agent abstractions and workflow state",
+        "DAG-based orchestrator with retries and recovery",
+        "Deterministic validator",
+        "Human approval gate",
+        "Artifact/document generator"
+      ],
+      "data_flows": [
+        "Create URL: HTTP -> URLService -> URLRepository -> SQLite/PostgreSQL-compatible persistence.",
+        "Redirect: HTTP -> URLService -> URLRepository -> click event + redirect response.",
+        "Engineering workflow: requirement -> analysis -> task graph -> dependent agents -> validation -> approval -> summary."
+      ],
+      "decisions": [
+        "Use FastAPI for typed APIs and generated OpenAPI documentation.",
+        "Use SQLite for a zero-friction local demo and preserve SQLAlchemy portability for PostgreSQL.",
+        "Use deterministic validation for checks that should not depend on model behavior.",
+        "Use an LLM provider interface so a real model can be added without coupling the workflow core."
+      ],
+      "tradeoffs": [
+        "SQLite simplifies setup but is not the final choice for high write concurrency.",
+        "Basic analytics avoids unnecessary event-stream infrastructure in the prototype.",
+        "The deterministic provider favors reproducibility over open-ended model creativity."
+      ]
+    },
+    "generated_artifacts": [
+      "implementation_plan.md",
+      "architecture.md",
+      "api_contract.json",
+      "database_schema.md",
+      "test_plan.md",
+      "generated_code.py",
+      "generated_tests.py",
+      "risks-and-tradeoffs.md"
+    ],
+    "validation": {
+      "passed": true,
+      "checks": [
+        "All required workflow tasks exist",
+        "Requirement analysis contains acceptance criteria",
+        "Architecture contains components",
+        "Engineering artifact files were generated",
+        "API contract exists",
+        "Test plan exists",
+        "Code and test generation artifacts are present in the manifest",
+        "Runnable application entrypoint exists"
+      ],
+      "failures": [],
+      "warnings": [
+        "Prototype validation does not execute generated arbitrary code; it relies on the repository test suite and deterministic artifact checks."
+      ]
+    },
+    "risks": [
+      {
+        "risk": "SQLite write contention",
+        "impact": "medium",
+        "mitigation": "Use PostgreSQL for multi-instance production deployment."
+      },
+      {
+        "risk": "Short-code collision",
+        "impact": "low",
+        "mitigation": "Unique index plus bounded retry."
+      },
+      {
+        "risk": "Analytics growth",
+        "impact": "medium",
+        "mitigation": "Move click events to an append-only/event pipeline when volume warrants it."
+      },
+      {
+        "risk": "Model-generated engineering output may be incorrect",
+        "impact": "high",
+        "mitigation": "Deterministic validation, tests, guardrails, and human approval."
+      }
+    ],
+    "tradeoffs": [
+      "SQLite simplifies setup but is not the final choice for high write concurrency.",
+      "Basic analytics avoids unnecessary event-stream infrastructure in the prototype.",
+      "The deterministic provider favors reproducibility over open-ended model creativity."
+    ],
+    "assumptions": [
+      "SQLite is acceptable for the local demonstration; PostgreSQL is the production evolution path.",
+      "The prototype prioritizes demonstrability over production-scale infrastructure."
+    ],
+    "limitations": [
+      "Prototype uses SQLite locally.",
+      "Analytics are intentionally basic.",
+      "Authentication, rate limiting, expiration, and custom aliases are outside the mandatory scope."
+    ],
+    "generated_at": "2026-08-16T17:51:43.162725+00:00"
+  },
+  "brownfield_analysis": {
+    "file_count": 56,
+    "relevant_files": [
+      "docker-compose.yml",
+      "examples/brownfield.json",
+      "examples/greenfield.json",
+      "examples/ambiguous.json",
+      "tests/conftest.py",
+      "src/app/config.py",
+      "src/app/exceptions.py",
+      "src/app/__init__.py",
+      "src/app/main.py",
+      "src/app/cli.py",
+      "src/app/models.py",
+      "src/app/logging.py",
+      "src/app/validation/__init__.py",
+      "src/app/validation/validator.py",
+      "src/app/services/__init__.py",
+      "src/app/services/url_service.py",
+      "src/app/api/__init__.py",
+      "src/app/api/url_routes.py",
+      "src/app/agents/artifacts.py",
+      "src/app/agents/requirement.py",
+      "src/app/agents/guarded.py",
+      "src/app/agents/__init__.py",
+      "src/app/agents/providers.py",
+      "src/app/agents/contracts.py",
+      "src/app/agents/testing.py",
+      "src/app/agents/base.py",
+      "src/app/agents/architecture.py",
+      "src/app/agents/risk.py",
+      "src/app/agents/implementation.py",
+      "src/app/agents/summary.py",
+      "src/app/agents/brownfield.py",
+      "src/app/agents/database.py",
+      "src/app/agents/planner.py",
+      "src/app/storage/__init__.py",
+      "src/app/storage/models.py",
+      "src/app/storage/database.py",
+      "src/app/storage/repository.py",
+      "src/app/orchestration/orchestrator.py",
+      "src/app/orchestration/__init__.py",
+      "tests/integration/test_api.py",
+      "tests/e2e/test_mandatory_demo.py",
+      "tests/unit/test_url_service.py",
+      "tests/orchestration/test_brownfield.py",
+      "tests/orchestration/test_workflow.py",
+      "examples/output/brownfield.json",
+      "examples/output/greenfield.json",
+      "examples/output/ambiguous.json",
+      "examples/output/brownfield-artifacts/generated_code.py",
+      "examples/output/brownfield-artifacts/generated_tests.py",
+      "examples/output/brownfield-artifacts/api_contract.json",
+      "examples/output/ambiguous-artifacts/generated_code.py",
+      "examples/output/ambiguous-artifacts/generated_tests.py",
+      "examples/output/ambiguous-artifacts/api_contract.json",
+      "examples/output/greenfield-artifacts/generated_code.py",
+      "examples/output/greenfield-artifacts/generated_tests.py",
+      "examples/output/greenfield-artifacts/api_contract.json"
+    ],
+    "observed_files": [
+      "docker-compose.yml",
+      "examples/brownfield.json",
+      "examples/greenfield.json",
+      "examples/ambiguous.json",
+      "tests/conftest.py",
+      "src/app/config.py",
+      "src/app/exceptions.py",
+      "src/app/__init__.py",
+      "src/app/main.py",
+      "src/app/cli.py",
+      "src/app/models.py",
+      "src/app/logging.py",
+      "src/app/validation/__init__.py",
+      "src/app/validation/validator.py",
+      "src/app/services/__init__.py",
+      "src/app/services/url_service.py",
+      "src/app/api/__init__.py",
+      "src/app/api/url_routes.py",
+      "src/app/agents/artifacts.py",
+      "src/app/agents/requirement.py",
+      "src/app/agents/guarded.py",
+      "src/app/agents/__init__.py",
+      "src/app/agents/providers.py",
+      "src/app/agents/contracts.py",
+      "src/app/agents/testing.py",
+      "src/app/agents/base.py",
+      "src/app/agents/architecture.py",
+      "src/app/agents/risk.py",
+      "src/app/agents/implementation.py",
+      "src/app/agents/summary.py",
+      "src/app/agents/brownfield.py",
+      "src/app/agents/database.py",
+      "src/app/agents/planner.py",
+      "src/app/storage/__init__.py",
+      "src/app/storage/models.py",
+      "src/app/storage/database.py",
+      "src/app/storage/repository.py",
+      "src/app/orchestration/orchestrator.py",
+      "src/app/orchestration/__init__.py",
+      "tests/integration/test_api.py",
+      "tests/e2e/test_mandatory_demo.py",
+      "tests/unit/test_url_service.py",
+      "tests/orchestration/test_brownfield.py",
+      "tests/orchestration/test_workflow.py",
+      "examples/output/brownfield.json",
+      "examples/output/greenfield.json",
+      "examples/output/ambiguous.json",
+      "examples/output/brownfield-artifacts/generated_code.py",
+      "examples/output/brownfield-artifacts/generated_tests.py",
+      "examples/output/brownfield-artifacts/api_contract.json",
+      "examples/output/ambiguous-artifacts/generated_code.py",
+      "examples/output/ambiguous-artifacts/generated_tests.py",
+      "examples/output/ambiguous-artifacts/api_contract.json",
+      "examples/output/greenfield-artifacts/generated_code.py",
+      "examples/output/greenfield-artifacts/generated_tests.py",
+      "examples/output/greenfield-artifacts/api_contract.json"
+    ],
+    "impacted_areas": [
+      "API routes",
+      "service layer",
+      "persistence models",
+      "tests",
+      "configuration"
+    ],
+    "evidence_based": true
+  }
+}
