@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from app.exceptions import ApprovalRequiredError
+
 from app.models import ApprovalDecision, TaskStatus
 from app.orchestration.orchestrator import WorkflowOrchestrator
 
@@ -30,15 +30,29 @@ async def test_workflow_runs_with_approval(tmp_path: Path) -> None:
 
 
 @pytest.mark.asyncio
-async def test_workflow_pauses_for_human_approval(tmp_path: Path) -> None:
+async def test_workflow_pauses_for_human_approval(
+    tmp_path: Path,
+) -> None:
     orchestrator = WorkflowOrchestrator(
         Path.cwd(),
         tmp_path / "artifacts",
         max_retries=1,
         approval_required=True,
     )
-    with pytest.raises(ApprovalRequiredError):
-        await orchestrator.run(MANDATORY_REQUIREMENT, auto_approve=False)
+
+    state = await orchestrator.run(
+        MANDATORY_REQUIREMENT,
+        auto_approve=False,
+    )
+
+    assert state.approval is None
+    assert (
+        state.tasks["approval"].status
+        == TaskStatus.REQUIRES_APPROVAL
+    )
+    assert state.validation is not None
+    assert state.validation.passed
+    assert state.completed_at is None
 
 
 @pytest.mark.asyncio
