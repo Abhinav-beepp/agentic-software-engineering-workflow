@@ -104,9 +104,7 @@ class WorkflowOrchestrator:
 
         if not state.validation.passed:
             details = "; ".join(state.validation.failures)
-            raise WorkflowError(
-                f"Engineering validation failed: {details}"
-            )
+            raise WorkflowError(f"Engineering validation failed: {details}")
 
         # 4. Human approval gate.
         if self.approval_required and not auto_approve:
@@ -173,9 +171,7 @@ class WorkflowOrchestrator:
         caller can provide revision feedback.
         """
         if state.validation is None or not state.validation.passed:
-            raise WorkflowError(
-                "Cannot approve an unvalidated workflow"
-            )
+            raise WorkflowError("Cannot approve an unvalidated workflow")
 
         if decision == ApprovalDecision.APPROVED:
             state.approval = ApprovalDecision.APPROVED
@@ -208,9 +204,7 @@ class WorkflowOrchestrator:
 
             return state
 
-        raise WorkflowError(
-            f"Unsupported approval decision: {decision}"
-        )
+        raise WorkflowError(f"Unsupported approval decision: {decision}")
 
     async def revise_and_resume(
         self,
@@ -224,14 +218,10 @@ class WorkflowOrchestrator:
             ApprovalDecision.REJECTED,
             ApprovalDecision.NEEDS_REVISION,
         }:
-            raise WorkflowError(
-                "Revision requires a rejected or needs-revision approval decision"
-            )
+            raise WorkflowError("Revision requires a rejected or needs-revision approval decision")
 
         if not feedback.strip():
-            raise WorkflowError(
-                "Revision feedback must not be empty"
-            )
+            raise WorkflowError("Revision feedback must not be empty")
 
         state.approval = None
         state.completed_at = None
@@ -264,15 +254,11 @@ class WorkflowOrchestrator:
         await self._execute_graph(state)
 
         if state.validation is None:
-            raise WorkflowError(
-                "Validation did not execute after revision"
-            )
+            raise WorkflowError("Validation did not execute after revision")
 
         if not state.validation.passed:
             details = "; ".join(state.validation.failures)
-            raise WorkflowError(
-                f"Revised engineering validation failed: {details}"
-            )
+            raise WorkflowError(f"Revised engineering validation failed: {details}")
 
         # The revised workflow intentionally stops at the approval gate.
         state.tasks["approval"].status = TaskStatus.REQUIRES_APPROVAL
@@ -325,8 +311,7 @@ class WorkflowOrchestrator:
                 task
                 for task in pending
                 if all(
-                    state.tasks[dependency].status
-                    == TaskStatus.COMPLETED
+                    state.tasks[dependency].status == TaskStatus.COMPLETED
                     for dependency in task.dependencies
                 )
             ]
@@ -349,13 +334,9 @@ class WorkflowOrchestrator:
                 for task in blocked:
                     task.status = TaskStatus.BLOCKED
 
-                raise WorkflowError(
-                    "No executable tasks remain; dependency graph is blocked"
-                )
+                raise WorkflowError("No executable tasks remain; dependency graph is blocked")
 
-            await asyncio.gather(
-                *(self._run_task(state, task) for task in ready)
-            )
+            await asyncio.gather(*(self._run_task(state, task) for task in ready))
 
     async def _run_task(
         self,
@@ -374,11 +355,7 @@ class WorkflowOrchestrator:
         try:
             if task.id == "implementation":
                 result = await self._bundle.execute(state)
-                result.update(
-                    await self._require_agent(
-                        "implementation"
-                    ).execute(state)
-                )
+                result.update(await self._require_agent("implementation").execute(state))
 
             elif task.id == "validation":
                 result = {
@@ -401,9 +378,7 @@ class WorkflowOrchestrator:
                 return
 
             else:
-                result = await self._require_agent(
-                    task.id
-                ).execute(state)
+                result = await self._require_agent(task.id).execute(state)
 
             self._merge_result(
                 state,
@@ -438,9 +413,7 @@ class WorkflowOrchestrator:
             else:
                 task.status = TaskStatus.FAILED
 
-                state.errors.append(
-                    f"{task.id}: {exc}"
-                )
+                state.errors.append(f"{task.id}: {exc}")
 
                 self._record(
                     state,

@@ -7,16 +7,13 @@ from app.config import get_settings
 from app.models import ApprovalDecision, TaskStatus
 from app.orchestration.orchestrator import WorkflowOrchestrator
 
-
 MANDATORY_REQUIREMENT = (
     "Build a scalable URL shortener service with APIs, persistence, and analytics."
 )
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
-        description="Agentic software engineering demo"
-    )
+    parser = argparse.ArgumentParser(description="Agentic software engineering demo")
 
     subparsers = parser.add_subparsers(
         dest="command",
@@ -98,9 +95,7 @@ async def run_demo(args: argparse.Namespace) -> None:
         print()
 
         while True:
-            decision = input(
-                "Approve this engineering output? [y/n]: "
-            ).strip().lower()
+            decision = input("Approve this engineering output? [y/n]: ").strip().lower()
 
             if decision in {"y", "yes"}:
                 state = await orchestrator.approve_and_finalize(

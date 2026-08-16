@@ -35,9 +35,6 @@ class BrownfieldAgent(Agent):
                 ),
                 "requirement": state.requirement,
                 "mode": "brownfield",
-                "note": (
-                    "Analysis is based only on files observed "
-                    "in the supplied repository."
-                ),
+                "note": ("Analysis is based only on files observed in the supplied repository."),
             }
         }

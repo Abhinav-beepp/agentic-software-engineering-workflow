@@ -2,7 +2,6 @@ from pathlib import Path
 
 import pytest
 
-
 from app.models import ApprovalDecision, TaskStatus
 from app.orchestration.orchestrator import WorkflowOrchestrator
 
@@ -46,10 +45,7 @@ async def test_workflow_pauses_for_human_approval(
     )
 
     assert state.approval is None
-    assert (
-        state.tasks["approval"].status
-        == TaskStatus.REQUIRES_APPROVAL
-    )
+    assert state.tasks["approval"].status == TaskStatus.REQUIRES_APPROVAL
     assert state.validation is not None
     assert state.validation.passed
     assert state.completed_at is None
